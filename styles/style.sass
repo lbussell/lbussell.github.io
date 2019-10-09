@@ -1,0 +1,93 @@
+
+$font-size: 12pt
+$font-stack: sans-serif
+$vertical-spacing: 1.4
+
+// These colors are ripped from the Dracula color scheme
+$background: #282a36
+$text-color: #f8f8f2
+$gray: #44475a
+$cyan: #8be9fd
+$pink: #ff79c6
+$purple: #bd93f9
+
+$link-unvisited: $cyan
+$link-hover: $pink
+$link-visited: $purple
+
+html
+    font-size: $font-size
+    font-family: $font-stack
+    background: $background
+    color: $text-color
+    line-height: $vertical-spacing
+
+a
+    color: $link-unvisited
+    &:hover
+        color: $link-hover
+    &:visited
+        color: $link-visited
+
+.left-box
+    padding-top: 1rem
+    padding-bottom: 1rem
+    border-right: 2pt solid $gray
+
+.title-row
+    border-bottom: 2pt solid $gray
+
+.site-title
+    padding-top: 1rem
+
+.site-nav
+    padding-top: 0.5rem
+    padding-bottom: 0.5rem
+    a
+        padding: 0.5rem
+
+.scene
+    margin: auto
+    margin-top: 100px
+    width: 200px
+    height: 200px
+    perspective: 600px
+
+.cube
+    width: 100%
+    height: 100%
+    position: relative
+    transform-style: preserve-3d
+    transform: rotateX(-40deg) rotateY(40deg) rotateZ(0deg)
+
+.cube__face
+    position: absolute
+    width: 200px
+    height: 200px
+    border: 2px solid $background
+    text-align: center
+    line-height: 200px
+    background: #FFFFFF
+    color: $background
+    font-size: 32pt
+    font-weight: 700
+    writing-mode: vertical-rl
+    text-orientation: mixed
+
+.cube__face--front
+    transform: rotateY(  0deg) translateZ(100px)
+
+.cube__face--right
+    transform: rotateY( 90deg) translateZ(100px)
+
+.cube__face--back
+    transform: rotateY(180deg) translateZ(100px)
+
+.cube__face--left
+    transform: rotateY(-90deg) translateZ(100px)
+
+.cube__face--top
+    transform: rotateX( 90deg) translateZ(100px)
+
+.cube__face--bottom
+    transform: rotateX(-90deg) translateZ(100px)
