@@ -105,7 +105,7 @@ dotnet_style_prefer_conditional_expression_over_return = true:silent
 csharp_prefer_simple_default_expression = true:suggestion
 
 # Expression-bodied members
-csharp_style_expression_bodied_methods = true:silent
+csharp_style_expression_bodied_methods = false:silent
 csharp_style_expression_bodied_constructors = true:silent
 csharp_style_expression_bodied_operators = true:silent
 csharp_style_expression_bodied_properties = true:silent
@@ -127,6 +127,7 @@ csharp_style_conditional_delegate_call = true:suggestion
 csharp_style_prefer_index_operator = false:none
 csharp_style_prefer_range_operator = false:none
 csharp_style_pattern_local_over_anonymous_function = false:none
+csharp_style_prefer_primary_constructors = false
 
 # Space preferences
 csharp_space_after_cast = false
@@ -155,13 +156,22 @@ csharp_space_between_square_brackets = false
 # License header
 file_header_template = Licensed to the .NET Foundation under one or more agreements.\nThe .NET Foundation licenses this file to you under the MIT license.
 
-# C++ Files
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+dotnet_diagnostic.SX1101.severity = warning
+
+# SA1122: Use string.Empty for empty strings
+dotnet_diagnostic.SA1122.severity = none
+
+dotnet_diagnostic.SA1309.severity = none
+dotnet_diagnostic.SX1309.severity = warning
 
 # SA1600: Elements should be documented
 dotnet_diagnostic.SA1600.severity = none
 
-# SA1101: Prefix local calls with this
-dotnet_diagnostic.SA1101.severity = none
+# SA1633: File should have header
+dotnet_diagnostic.SA1633.severity = suggestion
+
 
 [*.{cpp,h,in}]
 curly_bracket_next_line = true
