@@ -1,0 +1,48 @@
+# Based on https://til.simonwillison.net/github-actions/github-pages
+
+name: Publish site
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  # allows the actions/checkout action to check out the repo
+  contents: read
+  # enables writes to GitHub Pages
+  pages: write
+  # required by actions/deploy-pages
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: NPM Install
+        run: npm ci
+
+      - name: Build site
+        run: npm run build-ghpages
+
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site/
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
