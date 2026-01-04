@@ -4,34 +4,90 @@
 	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 }
 
-/* Theme colors */
+/* Color palette */
 :root {
-	--color-gray-20: #e0e0e0;
-	--color-gray-50: #C0C0C0;
-	--color-gray-90: #333;
+  /* https://oklch.fyi/color-palettes/gray */
+  --gray-1: oklch(0.162 0.000 0.0);
+  --gray-2: oklch(0.195 0.000 0.0);
+  --gray-3: oklch(0.254 0.000 0.0);
+  --gray-4: oklch(0.302 0.000 0.0);
+  --gray-5: oklch(0.348 0.000 0.0);
+  --gray-6: oklch(0.396 0.000 0.0);
+  --gray-7: oklch(0.459 0.000 0.0);
+  --gray-8: oklch(0.549 0.000 0.0);
+  --gray-9: oklch(0.649 0.000 0.0);
+  --gray-10: oklch(0.720 0.000 0.0);
+  --gray-11: oklch(0.863 0.000 0.0);
+  --gray-12: oklch(0.933 0.000 0.0);
+  /* https://oklch.fyi/color-palettes/purple */
+  --purple-1: oklch(0.183 0.027 295.0);
+  --purple-2: oklch(0.214 0.038 295.0);
+  --purple-3: oklch(0.279 0.075 295.0);
+  --purple-4: oklch(0.330 0.105 295.0);
+  --purple-5: oklch(0.376 0.129 295.0);
+  --purple-6: oklch(0.427 0.151 295.0);
+  --purple-7: oklch(0.495 0.172 295.0);
+  --purple-8: oklch(0.581 0.192 295.0);
+  --purple-9: oklch(0.637 0.185 295.0);
+  --purple-10: oklch(0.690 0.174 295.0);
+  --purple-11: oklch(0.853 0.107 295.0);
+  --purple-12: oklch(0.924 0.063 295.0);
+  /* https://oklch.fyi/color-palettes/blue */
+  --blue-1: oklch(0.181 0.028 252.0);
+  --blue-2: oklch(0.212 0.039 252.0);
+  --blue-3: oklch(0.277 0.077 252.0);
+  --blue-4: oklch(0.328 0.107 252.0);
+  --blue-5: oklch(0.374 0.131 252.0);
+  --blue-6: oklch(0.425 0.152 252.0);
+  --blue-7: oklch(0.493 0.172 252.0);
+  --blue-8: oklch(0.579 0.191 252.0);
+  --blue-9: oklch(0.629 0.187 252.0);
+  --blue-10: oklch(0.682 0.176 252.0);
+  --blue-11: oklch(0.849 0.107 252.0);
+  --blue-12: oklch(0.921 0.063 252.0);
+}
 
-	--background-color: #fff;
+/* Light theme colors */
+:root {
+  --color-gray-bg: var(--gray-12);
+  --color-gray-md: var(--gray-6);
+  --color-gray-fg: var(--gray-1);
 
-	--text-color: var(--color-gray-90);
-	--text-color-link: #082840;
-	--text-color-link-active: #5f2b48;
-	--text-color-link-visited: #17050F;
+  --color-purple-bg: var(--purple-12);
+  --color-purple-md: var(--purple-7);
+  --color-purple-fg: var(--purple-1);
+
+  --color-blue-bg: var(--blue-12);
+  --color-blue-md: var(--blue-7);
+  --color-blue-fg: var(--blue-1);
+}
+
+/* Theme color assignments */
+:root {
+	--background-color: var(--color-gray-bg);
+	--text-color: var(--color-gray-fg);
+
+	--text-color-link: var(--color-blue-fg);
+	--text-color-link-active: var(--color-blue-fg);
+	--text-color-link-visited: var(--color-purple-fg);
 
 	--syntax-tab-size: 2;
 }
 
+/* Dark theme colors */
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-gray-20: #e0e0e0;
-		--color-gray-50: #C0C0C0;
-		--color-gray-90: #dad8d8;
+  --color-gray-bg: var(--gray-2);
+  --color-gray-md: var(--gray-6);
+  --color-gray-fg: var(--gray-12);
 
-		/* --text-color is assigned to --color-gray-_ above */
-		--text-color-link: #1493fb;
-		--text-color-link-active: #6969f7;
-		--text-color-link-visited: #a6a6f8;
+  --color-purple-bg: var(--purple-1);
+  --color-purple-md: var(--purple-7);
+  --color-purple-fg: var(--purple-11);
 
-		--background-color: #15202b;
+  --color-blue-bg: var(--blue-1);
+  --color-blue-md: var(--blue-7);
+  --color-blue-fg: var(--blue-11);
 	}
 }
 
@@ -123,7 +179,7 @@ main :first-child {
 }
 
 header {
-	border-bottom: 1px dashed var(--color-gray-20);
+	border-bottom: 1px dashed var(--color-gray-md);
 }
 
 #skip-link {
@@ -131,7 +187,7 @@ header {
 	background: var(--background-color);
 	color: var(--text-color);
 	padding: 0.5rem 1rem;
-	border: 1px solid var(--color-gray-90);
+	border: 1px solid var(--color-gray-fg);
 	border-radius: 2px;
 }
 
@@ -149,7 +205,7 @@ header {
 	justify-content: space-between;
 	gap: .5em 1em;
 	list-style: "";
-	border-top: 1px dashed var(--color-gray-20);
+	border-top: 1px dashed var(--color-gray-md);
 	padding: 1em 0;
 }
 .links-nextprev > * {
@@ -252,7 +308,7 @@ header {
 .postlist-date,
 .postlist-item:before {
 	font-size: 0.8125em; /* 13px /16 */
-	color: var(--color-gray-90);
+	color: var(--color-gray-fg);
 }
 .postlist-date {
 	word-spacing: -0.5px;
@@ -295,4 +351,3 @@ header {
 .post-metadata time {
 	margin-right: 1em;
 }
-
