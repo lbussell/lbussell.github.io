@@ -1,0 +1,21 @@
+{
+  "name": "lbussell.github.io",
+  "version": "1.0.0",
+  "description": "This is my webiste.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lbussell/lbussell.github.io.git"
+  },
+  "keywords": [],
+  "author": "Logan Bussell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lbussell/lbussell.github.io/issues"
+  },
+  "homepage": "https://github.com/lbussell/lbussell.github.io#readme",
+  "type": "module"
+}
